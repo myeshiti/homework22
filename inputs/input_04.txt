@@ -1,0 +1,6 @@
+badpassword
+badpassword2
+Goodpassword1
+12345678
+Abc1
+quit

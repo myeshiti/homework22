@@ -1,0 +1,19 @@
+5
+6
+1
+Large
+Bell Peppers, Olives, Spinach, Mushrooms, Anchovies, Pineapple, Pepperoni, Sausage
+2
+5
+Maple Syrup, Blueberries, Blueberries, Maple Syrup
+3
+1
+Whipped Cream, Chocolate Drizzle, Caramel Drizzle, Sprinkles, Gummy Bears, Cherry, Pineapple Chunks, Whipped Cream, Chocolate Drizzle, Caramel Drizzle
+no
+3
+5
+Sprinkles, Gummy Bears, Pineapple Chunks
+yes
+1
+Medium
+Ham, Pineapple, Ham, Pineapple, Ham, Pineapple, Ham, Pineapple, Ham, Pineapple, Ham, Pineapple, Ham, Pineapple
