@@ -43,7 +43,50 @@ print("-------- Problem 4 --------")
 # You may assume the user enters a string.
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
+def is_valid_password(password):
+    """
+    This function checks if a password meets the following requirements:
+    - At least 8 characters long
+    - Contains at least one uppercase letter
+    - Contains at least one lowercase letter
+    - Contains at least one number
 
+    Args:
+    password (str): The password to validate.
+
+    Returns:
+    bool: True if the password is valid, False otherwise.
+    """
+    
+    # Check if the password is at least 8 characters long
+    if len(password) < 8:
+        print("Password must be at least 8 characters long.")
+        return False
+    
+    # Check if the password contains at least one uppercase letter
+    if not any(char.isupper() for char in password):
+        print("Password must contain at least one uppercase letter.")
+        return False
+    
+    # Check if the password contains at least one lowercase letter
+    if not any(char.islower() for char in password):
+        print("Password must contain at least one lowercase letter.")
+        return False
+    
+    # Check if the password contains at least one digit
+    if not any(char.isdigit() for char in password):
+        print("Password must contain at least one number.")
+        return False
+    
+    # If all conditions are met
+    return True
+
+# Example of usage
+password = input("Enter a password to validate: ")
+if is_valid_password(password):
+    print("Your password is valid!")
+else:
+    print("Your password is not valid.")
 # Some extra code to run your functions, don't worry about it!
 def main():
   password_helper()
