@@ -33,3 +33,25 @@ print("-------- Problem 2 --------")
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
 
+def is_palindrome(s):
+    # Clean the string: remove spaces and convert to lowercase
+    cleaned_str = ''.join(s.split()).lower()
+    
+    # Compare the cleaned string with its reverse
+    return cleaned_str == cleaned_str[::-1]
+
+# Continuously prompt the user for input
+while True:
+    # Ask the user to input a string
+    user_input = input("Enter a string (or type 'quit' to stop): ")
+    
+    # Exit the loop if the user types 'quit'
+    if user_input.lower() == "quit":
+        print("Goodbye!")
+        break
+    
+    # Check if the input is a palindrome
+    if is_palindrome(user_input):
+        print(f"'{user_input}' is a palindrome!")
+    else:
+        print(f"'{user_input}' is not a palindrome!")
