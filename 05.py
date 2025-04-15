@@ -126,11 +126,124 @@ ADDITIONAL NOTES
 # Print the amount of items ordered and the total price.
 # Don't forget to write a docstring!
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
+# PART 1: order_pizza()
+# ----------------------------------------
+def order_pizza():
+    """
+    This function handles pizza orders. It prompts the user for pizza size and toppings,
+    calculates the price based on the size and toppings, and returns the total price.
+
+    Returns:
+    float: The total price of the pizza with toppings.
+    """
+    pizza_prices = {'small': 5.00, 'medium': 8.00, 'large': 10.00}
+    topping_prices = {'corn': 0.50, 'onions': 0.50, 'bell peppers': 0.50, 'olives': 0.50,
+                      'spinach': 1.00, 'mushrooms': 1.00, 'anchovies': 1.00, 'pineapple': 1.00,
+                      'pepperoni': 1.50, 'sausage': 1.50, 'chicken': 1.50, 'ham': 1.50}
+
+    # Get pizza size from the user
+    size = input("What size pizza would you like? (small, medium, large): ").lower()
+    while size not in pizza_prices:
+        size = input("Invalid size. Please enter small, medium, or large: ").lower()
+
+    # Get toppings from the user
+    toppings = input("Enter your toppings (comma separated): ").lower().split(", ")
+    unique_toppings = set(toppings)  # Remove duplicate toppings
+    total_price = pizza_prices[size] + sum(topping_prices[topping] for topping in unique_toppings)
+
+    return total_price
+
+
+# PART 2: order_pancake()
+# ----------------------------------------
+def order_pancake():
+    """
+    This function handles pancake orders. It prompts the user for the number of pancakes 
+    and their toppings, calculates the price based on the number of pancakes and toppings,
+    and returns the total price.
+
+    Returns:
+    float: The total price of the pancakes with toppings.
+    """
+    pancake_price = 2.00
+    topping_prices = {'maple syrup': 0.50, 'whipped cream': 0.50, 'butter': 0.50, 'chocolate drizzle': 0.50,
+                      'blueberries': 1.00, 'chocolate chips': 1.00, 'pineapple chunks': 1.00, 'banana slices': 1.00}
+
+    # Get number of pancakes from the user
+    num_pancakes = int(input("How many pancakes would you like? "))
+    
+    # Get toppings from the user
+    toppings = input("Enter your toppings (comma separated): ").lower().split(", ")
+    unique_toppings = set(toppings)  # Remove duplicate toppings
+    total_price = num_pancakes * pancake_price + sum(topping_prices[topping] for topping in unique_toppings)
+
+    return total_price
+
+
+# PART 3: order_pineapple_sorbet()
+# ----------------------------------------
+def order_pineapple_sorbet():
+    """
+    This function handles pineapple sorbet orders. It prompts the user for the number of scoops 
+    and their toppings, calculates the price based on the number of scoops and toppings,
+    and returns the total price. It also asks if they want the sorbet served in a pineapple.
+
+    Returns:
+    float: The total price of the sorbet with toppings and the optional pineapple.
+    """
+    sorbet_price = 1.50
+    topping_prices = {'whipped cream': 0.50, 'chocolate drizzle': 0.50, 'caramel drizzle': 0.50,
+                      'sprinkles': 1.00, 'gummy bears': 1.00, 'cherry': 1.00, 'pineapple chunks': 1.00}
+    pineapple_price = 4.00
+
+    # Get number of scoops from the user
+    num_scoops = int(input("How many scoops of pineapple sorbet would you like? "))
+    
+    # Get toppings from the user
+    toppings = input("Enter your toppings (comma separated): ").lower().split(", ")
+    unique_toppings = set(toppings)  # Remove duplicate toppings
+
+    # Ask if they want it served in a pineapple
+    pineapple_option = input("Would you like it served in a pineapple? (yes/no): ").lower()
+    if pineapple_option == "yes":
+        total_price = (num_scoops * sorbet_price) + sum(topping_prices[topping] for topping in unique_toppings) + pineapple_price
+    else:
+        total_price = (num_scoops * sorbet_price) + sum(topping_prices[topping] for topping in unique_toppings)
+
+    return total_price
+
+
+# PART 4: menu()
+# ----------------------------------------
+def menu():
+    """
+    This function serves as the main menu for the ordering system. It prompts the user to 
+    choose how many items they would like to order and allows them to choose between pizza,
+    pancakes, and pineapple sorbet. It calls the corresponding order function for each item 
+    and calculates the total price for all items ordered.
+    """
+    total_price = 0.0
+    num_items = int(input("How many items would you like to order? "))
+
+    for _ in range(num_items):
+        order_type = input("What would you like to order? (1. Pizza, 2. Pancake, 3. Pineapple Sorbet): ")
+        
+        while order_type not in ["1", "2", "3"]:
+            order_type = input("Invalid option. Please enter 1, 2, or 3: ")
+        
+        if order_type == "1":
+            total_price += order_pizza()
+        elif order_type == "2":
+            total_price += order_pancake()
+        elif order_type == "3":
+            total_price += order_pineapple_sorbet()
+
+    print(f"\nYou ordered {num_items} item(s). Your total price is: ${total_price:.2f}")
 
 
 # Some extra code to run your functions, don't worry about it!
 def main():
-  menu()
+    menu()
 
 if __name__ == "__main__":
     main()
