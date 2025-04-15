@@ -18,5 +18,14 @@ print("-------- Problem 1 --------")
 # Then, print all prime numbers between those two numbers, inclusive.
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
+start_num = int(input("Enter the first number: "))
+
+#Input the second number
+end_num = int(input("Enter the second nunber: "))
+
+while start_num >= end_num:
+     print("The first number must be smallet than the second number. Please enter again.")
+     start_num = int(input("Enter the first number: ")
+     end_num = int(input 
 
 
